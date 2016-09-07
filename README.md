@@ -20,8 +20,8 @@ The following **optional** features are implemented:
 * [ ] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
 
 The following **additional** features are implemented:
-
-- [ ] List anything else that you can get done to improve the app functionality!
+- [x] Custom designed UI
+- [x] Demonstrated use of image assets
 
 ## Video Walkthrough 
 
@@ -34,6 +34,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
 
 Describe any challenges encountered while building the app.
+- Had to do a bunch of research on how to implement the TableController and make the checkboxes show up and hide.
 
 ## License
 
