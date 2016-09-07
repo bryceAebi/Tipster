@@ -14,6 +14,7 @@
 		03A3AFB21D7E8CFA003F658A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03A3AFB01D7E8CFA003F658A /* LaunchScreen.storyboard */; };
 		03A3AFBD1D7E8CFA003F658A /* TipsterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A3AFBC1D7E8CFA003F658A /* TipsterTests.swift */; };
 		03A3AFC81D7E8CFA003F658A /* TipsterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A3AFC71D7E8CFA003F658A /* TipsterUITests.swift */; };
+		03B63F801D7FD05100503A4A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B63F7F1D7FD05100503A4A /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		03A3AFC31D7E8CFA003F658A /* TipsterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipsterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03A3AFC71D7E8CFA003F658A /* TipsterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsterUITests.swift; sourceTree = "<group>"; };
 		03A3AFC91D7E8CFA003F658A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03B63F7F1D7FD05100503A4A /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		03A3AF9B1D7E8CFA003F658A = {
 			isa = PBXGroup;
 			children = (
+				03B63F7F1D7FD05100503A4A /* TableViewController.swift */,
 				03A3AFA61D7E8CFA003F658A /* Tipster */,
 				03A3AFBB1D7E8CFA003F658A /* TipsterTests */,
 				03A3AFC61D7E8CFA003F658A /* TipsterUITests */,
@@ -258,6 +261,7 @@
 			files = (
 				03A3AFAA1D7E8CFA003F658A /* ViewController.swift in Sources */,
 				03A3AFA81D7E8CFA003F658A /* AppDelegate.swift in Sources */,
+				03B63F801D7FD05100503A4A /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +486,7 @@
 				03A3AFCE1D7E8CFA003F658A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		03A3AFCF1D7E8CFA003F658A /* Build configuration list for PBXNativeTarget "TipsterTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +495,7 @@
 				03A3AFD11D7E8CFA003F658A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		03A3AFD21D7E8CFA003F658A /* Build configuration list for PBXNativeTarget "TipsterUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +504,7 @@
 				03A3AFD41D7E8CFA003F658A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
