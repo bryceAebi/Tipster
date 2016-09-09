@@ -8,17 +8,20 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
-    @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipControl: UISegmentedControl!
+    @IBOutlet weak var textField: UITextField!
     
+    let textFieldLimit = 10
     let defaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textField.becomeFirstResponder()
+        textField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,9 +34,16 @@ class ViewController: UIViewController {
         tipControl.selectedSegmentIndex = defaultTipIdx
     }
 
+    // Enforce maximum character length of bill
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else { return true }
+        let newLength = text.characters.count + string.characters.count - range.length
+        return newLength <= textFieldLimit
+    }
+
     @IBAction func calculateTip(sender: AnyObject) {
         let tipPercentages = [0.15, 0.2, 0.25]
-        let bill = Double(billField.text!) ?? 0
+        let bill = Double(textField.text!) ?? 0
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
         let total = tip + bill
  
@@ -43,7 +53,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onTap(sender: AnyObject) {
-        view.endEditing(true)
+        // I want the keypad to always be open so
+        // the following line is commented:
+        //view.endEditing(true)
     }
 }
 
