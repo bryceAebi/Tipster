@@ -10,16 +10,29 @@ import UIKit
 
 class TableViewController: UITableViewController {
 
-    let defaults = NSUserDefaults.standardUserDefaults()
-    let tipValues = ["15%", "20%", "25%"]
+    struct SettingsTableConstants {
+        struct DefaultTip {
+            static let Section = 0
+            static let SectionLabel = "Default Tip"
+            static let NumRows = 3
+            static let Id = "cell"
+        }
+        struct LowLight {
+            static let Section = 1
+            static let SectionLabel = "Appearance"
+            static let NumRows = 1
+            static let Id = "theme"
+        }
+    }
+
     var checkedCell: Int?
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         // Mark the default tip with a check mark
-        let defaultTipIdx = defaults.objectForKey("default_tip") as! Int
-        let index = NSIndexPath(forRow: defaultTipIdx, inSection: 0)
+        let defaultTipIdx = defaults.objectForKey(UserDefaultsKeys.DefaultTip) as! Int
+        let index = NSIndexPath(forRow: defaultTipIdx, inSection: SettingsTableConstants.DefaultTip.Section)
         if let cell = tableView.cellForRowAtIndexPath(index) {
             cell.accessoryType = .Checkmark
             checkedCell = defaultTipIdx
@@ -27,44 +40,70 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Default Tip"
+        switch (section) {
+        case SettingsTableConstants.DefaultTip.Section:
+            return SettingsTableConstants.DefaultTip.SectionLabel
+        case SettingsTableConstants.LowLight.Section:
+            return SettingsTableConstants.LowLight.SectionLabel
+        default:
+            return ""
+        }
     }
     
+    // Return the number of sections.
     override func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
-        // Return the number of sections.
-        return 1
+        return 2
     }
     
+    // Return the number of rows
     override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
-        // Return the number of rows
-        return 3
+        switch (section) {
+        case SettingsTableConstants.DefaultTip.Section:
+            return SettingsTableConstants.DefaultTip.NumRows
+        case SettingsTableConstants.LowLight.Section:
+            return SettingsTableConstants.LowLight.NumRows
+        default:
+            return 0
+        }
     }
     
+    // Handle when user taps a new default percentage
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == SettingsTableConstants.DefaultTip.Section {
+            // Store the default tip selection in cache
+            defaults.setObject(indexPath.row, forKey: UserDefaultsKeys.DefaultTip)
+            defaults.synchronize()
 
-        // Store the default tip selection in cache
-        defaults.setObject(indexPath.row, forKey: "default_tip")
-        defaults.synchronize()
-
-        // Update UI to uncheck last cell and check new cell
-        let index = NSIndexPath(forRow: checkedCell!, inSection: 0)
-        if let uncheckCell = tableView.cellForRowAtIndexPath(index) {
-            uncheckCell.accessoryType = .None
-        }
-        checkedCell = indexPath.row
-        if let cell = tableView.cellForRowAtIndexPath(indexPath) {
-            cell.accessoryType = .Checkmark
+            // Update UI to uncheck last cell and check new cell
+            let index = NSIndexPath(forRow: checkedCell!, inSection: SettingsTableConstants.DefaultTip.Section)
+            if let uncheckCell = tableView.cellForRowAtIndexPath(index) {
+                uncheckCell.accessoryType = .None
+            }
+            checkedCell = indexPath.row
+            if let cell = tableView.cellForRowAtIndexPath(indexPath) {
+                cell.accessoryType = .Checkmark
+            }
         }
     }
     
+    // Render desired table rows
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let row = indexPath.row
-        let cell = tableView.dequeueReusableCellWithIdentifier(
-            "cell",
-            forIndexPath: indexPath)
-        let label = tipValues[row]
-        cell.textLabel!.text = label
-        return cell
+        switch (indexPath.section) {
+            case SettingsTableConstants.LowLight.Section:
+                let cell = tableView.dequeueReusableCellWithIdentifier(
+                    SettingsTableConstants.LowLight.Id,
+                    forIndexPath: indexPath) as! TableViewCellWithSwitch
+                let lowLightActivated = defaults.objectForKey(UserDefaultsKeys.LowLightActivated) as! Bool
+                cell.rowSwitch.on = lowLightActivated
+                return cell
+            default:
+                let cell = tableView.dequeueReusableCellWithIdentifier(
+                    SettingsTableConstants.DefaultTip.Id,
+                    forIndexPath: indexPath)
+                let label = "\(Int(tipValues[row] * 100))%"
+                cell.textLabel!.text = label
+                return cell
+        }
     }
-    
 }

@@ -15,6 +15,12 @@
 		03A3AFBD1D7E8CFA003F658A /* TipsterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A3AFBC1D7E8CFA003F658A /* TipsterTests.swift */; };
 		03A3AFC81D7E8CFA003F658A /* TipsterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A3AFC71D7E8CFA003F658A /* TipsterUITests.swift */; };
 		03B63F801D7FD05100503A4A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B63F7F1D7FD05100503A4A /* TableViewController.swift */; };
+		03D03B171D8FAE9400273DCD /* ColoredLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D03B161D8FAE9400273DCD /* ColoredLabel.swift */; };
+		03D03B191D8FB6B000273DCD /* TableViewCellWithSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D03B181D8FB6B000273DCD /* TableViewCellWithSwitch.swift */; };
+		03D03B1B1D8FC06300273DCD /* ColoredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D03B1A1D8FC06300273DCD /* ColoredView.swift */; };
+		03D03B1D1D8FC26A00273DCD /* ColoredSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D03B1C1D8FC26A00273DCD /* ColoredSegmentedControl.swift */; };
+		03D03B211D9114EA00273DCD /* ColoredTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D03B201D9114EA00273DCD /* ColoredTextField.swift */; };
+		03D03B231D924C0700273DCD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D03B221D924C0700273DCD /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +54,13 @@
 		03A3AFC31D7E8CFA003F658A /* TipsterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipsterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03A3AFC71D7E8CFA003F658A /* TipsterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsterUITests.swift; sourceTree = "<group>"; };
 		03A3AFC91D7E8CFA003F658A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		03B63F7F1D7FD05100503A4A /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		03B63F7F1D7FD05100503A4A /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = ../TableViewController.swift; sourceTree = "<group>"; };
+		03D03B161D8FAE9400273DCD /* ColoredLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColoredLabel.swift; sourceTree = "<group>"; };
+		03D03B181D8FB6B000273DCD /* TableViewCellWithSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellWithSwitch.swift; sourceTree = "<group>"; };
+		03D03B1A1D8FC06300273DCD /* ColoredView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColoredView.swift; sourceTree = "<group>"; };
+		03D03B1C1D8FC26A00273DCD /* ColoredSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColoredSegmentedControl.swift; sourceTree = "<group>"; };
+		03D03B201D9114EA00273DCD /* ColoredTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColoredTextField.swift; path = ../ColoredTextField.swift; sourceTree = "<group>"; };
+		03D03B221D924C0700273DCD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +91,6 @@
 		03A3AF9B1D7E8CFA003F658A = {
 			isa = PBXGroup;
 			children = (
-				03B63F7F1D7FD05100503A4A /* TableViewController.swift */,
 				03A3AFA61D7E8CFA003F658A /* Tipster */,
 				03A3AFBB1D7E8CFA003F658A /* TipsterTests */,
 				03A3AFC61D7E8CFA003F658A /* TipsterUITests */,
@@ -100,8 +111,10 @@
 		03A3AFA61D7E8CFA003F658A /* Tipster */ = {
 			isa = PBXGroup;
 			children = (
+				03D03B221D924C0700273DCD /* Constants.swift */,
+				03D03B261D925D6400273DCD /* Components */,
+				03D03B251D925D4500273DCD /* Controllers */,
 				03A3AFA71D7E8CFA003F658A /* AppDelegate.swift */,
-				03A3AFA91D7E8CFA003F658A /* ViewController.swift */,
 				03A3AFAB1D7E8CFA003F658A /* Main.storyboard */,
 				03A3AFAE1D7E8CFA003F658A /* Assets.xcassets */,
 				03A3AFB01D7E8CFA003F658A /* LaunchScreen.storyboard */,
@@ -126,6 +139,27 @@
 				03A3AFC91D7E8CFA003F658A /* Info.plist */,
 			);
 			path = TipsterUITests;
+			sourceTree = "<group>";
+		};
+		03D03B251D925D4500273DCD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				03B63F7F1D7FD05100503A4A /* TableViewController.swift */,
+				03A3AFA91D7E8CFA003F658A /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		03D03B261D925D6400273DCD /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				03D03B201D9114EA00273DCD /* ColoredTextField.swift */,
+				03D03B181D8FB6B000273DCD /* TableViewCellWithSwitch.swift */,
+				03D03B1A1D8FC06300273DCD /* ColoredView.swift */,
+				03D03B1C1D8FC26A00273DCD /* ColoredSegmentedControl.swift */,
+				03D03B161D8FAE9400273DCD /* ColoredLabel.swift */,
+			);
+			name = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,8 +294,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				03A3AFAA1D7E8CFA003F658A /* ViewController.swift in Sources */,
+				03D03B171D8FAE9400273DCD /* ColoredLabel.swift in Sources */,
+				03D03B211D9114EA00273DCD /* ColoredTextField.swift in Sources */,
 				03A3AFA81D7E8CFA003F658A /* AppDelegate.swift in Sources */,
+				03D03B191D8FB6B000273DCD /* TableViewCellWithSwitch.swift in Sources */,
+				03D03B1D1D8FC26A00273DCD /* ColoredSegmentedControl.swift in Sources */,
 				03B63F801D7FD05100503A4A /* TableViewController.swift in Sources */,
+				03D03B1B1D8FC06300273DCD /* ColoredView.swift in Sources */,
+				03D03B231D924C0700273DCD /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

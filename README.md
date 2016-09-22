@@ -4,7 +4,7 @@ Tipster is a tip calculator application for iOS.
 
 Submitted by: Bryce Aebi
 
-Time spent: 4 hours spent in total
+Time spent: 8 hours spent in total
 
 ## User Stories
 
@@ -14,15 +14,17 @@ The following **required** functionality is complete:
 * [x] Settings page to change the default tip percentage.
 
 The following **optional** features are implemented:
-* [ ] UI animations
-* [ ] Using locale-specific currency and currency thousands separators.
-* [x] Remembering the bill amount across app restarts (if <10mins)
+* [x] UI animations (Calculated numbers fade in. It's dumb I know)
+* [x] Using locale-specific currency and currency thousands separators.
+* [x] Remembering the bill amount across app restarts (if \< 10mins)
 * [x] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
+* [x] Settings option to change the app's theme
 
 The following **additional** features are implemented:
 - [x] Custom designed UI
 - [x] Demonstrated use of image assets
 - [x] Added limit to number of characters that can be typed in keypad
+- [x] Logic to only calculate tip on whole dollars
 
 ## Video Walkthrough 
 
